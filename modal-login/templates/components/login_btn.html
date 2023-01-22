@@ -5,14 +5,12 @@
     class="w-100 btn btn-lg btn-danger"
     type="submit"
     hx-get="logout"
-    hx-headers='{"X-CSRFToken": "{{csrf_token}}"}'
     >Sign Out</button>
 {% else %}
 <button 
     class="w-100 btn btn-lg btn-primary" 
     type="submit"
     hx-get="login"
-    hx-headers='{"X-CSRFToken": "{{csrf_token}}"}'
     hx-target="#dialog"
     >Sign in</button>
 {% endif %}
