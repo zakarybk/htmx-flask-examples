@@ -1,0 +1,57 @@
+<div class="modal-content rounded-4 shadow">
+  <div class="modal-header p-5 pb-4 border-bottom-0">
+    <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+    <h1 class="fw-bold mb-0 fs-2">Sign in</h1>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="modal-body p-5 pt-0">
+    <form
+      hx-post="{{url_for('login')}}"
+      hx-headers='{"X-CSRFToken": "{{csrf_token}}"}'
+      class="modal-content"
+    >
+    {{ form.hidden_tag() }}
+      <div class="form-floating mb-3">
+        {{form.name(size=32, class_="form-control rounded-3",
+        id_="floatingInput", placeholder_="name@example.com")}}
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        {{form.password(size=32, class_="form-control rounded-3",
+        id_="floatingPassword", placeholder_="Password")}}
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          {{form.remember_me(type_="checkbox", value_=true)}} Remember me
+        </label>
+      </div>
+      <button
+        class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+        type="submit"
+      >
+        Sign in
+      </button>
+      <small class="text-muted"
+        >By clicking Sign up, you agree to the terms of use.</small
+      >
+      <hr class="my-4" />
+      <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+      <button
+        class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3"
+        type="submit"
+      >
+        <svg class="bi me-1" width="16" height="16">
+          <use xlink:href="#facebook"></use>
+        </svg>
+        Sign in with Facebook
+      </button>
+    </form>
+  </div>
+</div>
